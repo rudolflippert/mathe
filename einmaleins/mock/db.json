@@ -1,0 +1,28 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Benjamin",
+            "right": 0,
+            "wrong": 0,
+            "todo": [],
+            "done": []
+        },
+        {
+            "id": 2,
+            "name": "Rudi",
+            "right": "0",
+            "wrong": "0",
+            "todo": [
+                {
+                    "n1": 1,
+                    "n2": 2
+                },
+                {
+                    "n1": 5,
+                    "n2": 2
+                }
+            ]
+        }
+    ]
+}
