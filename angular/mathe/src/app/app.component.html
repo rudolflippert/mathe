@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>
+  {{ title }}
+</h1>
+{{ date | date:'HH:mm:ss' }}
+
+<section *ngIf="usersService.user!==undefined">
+  <h2 (click)="usersService.onSelect(undefined)">{{ usersService.user.name }}</h2>
+
+  {{usersService.getScore()}}
+  <rl-aufgabe-list></rl-aufgabe-list>
+
+{{usersService.user.todo[0].n1}}*{{usersService.user.todo[0].n2}}=
+<input #box type="number" (keyup.enter)="usersService.respond(box.value); box.value=''" >
+
+</section>
+
+<rl-user-selection *ngIf="usersService.user===undefined"></rl-user-selection>

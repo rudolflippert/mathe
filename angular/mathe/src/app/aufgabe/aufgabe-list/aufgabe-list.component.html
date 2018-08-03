@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let entry of list|slice:-10" ng-style="{'color':(entry.n1*entry.n2===entry.erg)?'black':'red'}">
+<rl-aufgabe-out [entry]="entry"></rl-aufgabe-out>
+  </li>
+</ul>
