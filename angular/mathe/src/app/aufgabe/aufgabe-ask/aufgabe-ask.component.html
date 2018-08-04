@@ -1,2 +1,2 @@
-{{aufgabe.n1}}*{{aufgabe.n2}}=
-<input #box type="number" (keyup.enter)="this.respond(box)" >
+{{aufgabe.n1}} &middot; {{aufgabe.n2}} =
+<input #box type="text" (keyup.enter)="this.respond(box)" (blur)="box.focus()" >

@@ -10,6 +10,10 @@ export class AufgabeOutComponent implements OnInit {
 
   @Input()
   entry: Aufgabe;
+
+  get correct(): boolean {
+    return this.entry.n1 * this.entry.n2 == this.entry.erg;
+  }
   
   constructor() { }
 

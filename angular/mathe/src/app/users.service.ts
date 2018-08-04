@@ -44,6 +44,12 @@ export class UsersService {
     this.http.put<User>(this.url+'users/'+this.user.id, this.user).subscribe();
   }
 
+  storeNew() {
+    this.http.post<User>(this.url+'users/', this.user).subscribe((response: User) => {
+      this.user.id = response.id;
+    });
+  }
+
   onSelect(user: User) {
     this.user = user;
     if (!this.user.todo.length) {

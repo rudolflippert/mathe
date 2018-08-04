@@ -1,3 +1,10 @@
+<h2>Wer bist Du?</h2>
 <ul>
   <li *ngFor="let entry of liste" (click)="usersService.onSelect(entry)">{{entry.name}}</li>
+  <li *ngIf="!newUser; else otherUser" (click)="newUser=true">jemand anderes...</li>
+    <ng-template #otherUser>
+      <li>
+        <input type="text" #other (keyup.enter)="createUser(other)" autofocus (blur)="newUser=false">
+      </li>
+    </ng-template>
 </ul>
