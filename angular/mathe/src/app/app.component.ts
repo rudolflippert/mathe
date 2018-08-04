@@ -8,20 +8,13 @@ import { User } from './user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mathe';
-  date = new Date();
-  user: User;
-  liste: User[];
+
+  title = 'Mathe';
 
   constructor(public usersService: UsersService) {
   }
 
   ngOnInit() {
-    this.usersService.getUsers();
-    this.liste = this.usersService.data;
-    window.setInterval(() => {
-      this.date = new Date();
-    }, 1000)
   }
 
 }

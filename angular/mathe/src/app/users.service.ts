@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Aufgabe } from './aufgabe';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,11 @@ export class UsersService {
   data: User[];
   user: User;
 
-  private url = 'http://192.168.13.31:3000/';
+  private url = environment.apiUrl;
 
   constructor(private http: HttpClient) {
-    this.data = []; /*[
+    // Dummy-Daten erzeugen, falls HTTP nicht verfügbar ist
+    this.data = [
       { name: 'Mama' },
       { name: 'Papa' },
       { name: 'Tobi' },
@@ -26,18 +28,20 @@ export class UsersService {
       { name: 'Maria' },
       { name: 'David' },
       { name: 'Jakob' },
-    ] as User[];*/
-
+    ] as User[];
+    this.getUsers();
   }
 
   getUsers(): void {
+    // Bestehende Liste mit HTTP-Daten ersetzen
     this.http.get(this.url+'users').subscribe((data: User[]) => {
+      this.data.splice(0);
       this.data.push(...data)});
   }
 
   store() {
-    this.http.put<User>(this.url+'users/'+this.user.id, this.user).subscribe(x => {
-      console.log(x)});
+    // Liste auf HTTP pushen
+    this.http.put<User>(this.url+'users/'+this.user.id, this.user).subscribe();
   }
 
   onSelect(user: User) {
@@ -75,13 +79,9 @@ export class UsersService {
     this.user.todo = shuffle(newTodo);
   }
 
-  getScore() {
-    return this.user.right-this.user.wrong;
-  }
 }
 
-
-function shuffle(array) {
+function shuffle(array: Aufgabe[]) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
@@ -97,5 +97,5 @@ function shuffle(array) {
     array[randomIndex] = temporaryValue;
   }
 
-  return array;
+  return array;      
 }
