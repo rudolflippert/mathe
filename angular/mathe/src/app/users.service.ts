@@ -14,6 +14,7 @@ export class UsersService {
   private url = environment.apiUrl;
 
   constructor(private http: HttpClient) {
+
     // Dummy-Daten erzeugen, falls HTTP nicht verfügbar ist
     this.data = [
       { name: 'Mama' },
@@ -83,28 +84,7 @@ export class UsersService {
     for (let i = 1; i <= 10; i++) {
       newTodo.push(new Aufgabe(i, n));
     }
-    this.user.todo = shuffle(newTodo);
+    this.user.todo = newTodo.shuffle();
   }
 
-}
-
-function shuffle(array: Aufgabe[]) {
-  let currentIndex = array.length;
-  let temporaryValue: Aufgabe;
-  let randomIndex: number;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
 }
