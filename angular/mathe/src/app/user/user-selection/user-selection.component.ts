@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, Input, Host, Inject, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, Host, Inject, ViewChild, ElementRef, ChangeDetectorRef, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
 import { User } from 'src/app/user';
 import { AppComponent } from '../../app.component';
 import { UsersService } from '../../users.service';
@@ -8,13 +8,25 @@ import { UsersService } from '../../users.service';
   templateUrl: './user-selection.component.html',
   styleUrls: ['./user-selection.component.css']
 })
-export class UserSelectionComponent implements OnInit {
+export class UserSelectionComponent implements OnInit, AfterViewInit {
 
   liste: User[];
   newUser = false;
-  
+
+  @ViewChildren('other')
+  ref: QueryList<ElementRef<HTMLInputElement>>;
+
   constructor(public usersService: UsersService) { }
 
+  ngAfterViewInit(): void {
+    this.ref.changes.subscribe((next: QueryList<ElementRef<HTMLInputElement>>) =>
+    {
+      const n = next.toArray();
+      if (n[0]) {
+        n[0].nativeElement.focus();
+    }
+    });
+  }
   ngOnInit() {
     this.liste = this.usersService.data;
   }
