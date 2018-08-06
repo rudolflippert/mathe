@@ -34,18 +34,19 @@ export class UsersService {
 
   getUsers(): void {
     // Bestehende Liste mit HTTP-Daten ersetzen
-    this.http.get(this.url+'users').subscribe((data: User[]) => {
+    this.http.get(this.url + 'users').subscribe((data: User[]) => {
       this.data.splice(0);
-      this.data.push(...data)});
+      this.data.push(...data);
+    });
   }
 
   store() {
     // Liste auf HTTP pushen
-    this.http.put<User>(this.url+'users/'+this.user.id, this.user).subscribe();
+    this.http.put<User>(this.url + 'users/' + this.user.id, this.user).subscribe();
   }
 
   storeNew() {
-    this.http.post<User>(this.url+'users/', this.user).subscribe((response: User) => {
+    this.http.post<User>(this.url + 'users/', this.user).subscribe((response: User) => {
       this.user.id = response.id;
     });
   }
@@ -58,13 +59,13 @@ export class UsersService {
   }
 
   respond(answer: number) {
-    let aufgabe = this.user.todo[0];
+    const aufgabe = this.user.todo[0];
     this.user.todo.reverse();
     this.user.todo.pop();
     this.user.todo.reverse();
     aufgabe.erg = answer;
     this.user.done.push(aufgabe);
-    if (aufgabe.n1*aufgabe.n2==aufgabe.erg) {
+    if ((aufgabe.n1 * aufgabe.n2) === aufgabe.erg) {
       this.user.right++;
     } else {
       this.user.wrong++;
@@ -77,8 +78,8 @@ export class UsersService {
   }
 
   newTodos() {
-    let newTodo: Aufgabe[] = [];
-    let n = Math.ceil(Math.random() * 10);
+    const newTodo: Aufgabe[] = [];
+    const n = Math.ceil(Math.random() * 10);
     for (let i = 1; i <= 10; i++) {
       newTodo.push(new Aufgabe(i, n));
     }
@@ -88,7 +89,9 @@ export class UsersService {
 }
 
 function shuffle(array: Aufgabe[]) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+  let currentIndex = array.length;
+  let temporaryValue: Aufgabe;
+  let randomIndex: number;
 
   // While there remain elements to shuffle...
   while (0 !== currentIndex) {
@@ -103,5 +106,5 @@ function shuffle(array: Aufgabe[]) {
     array[randomIndex] = temporaryValue;
   }
 
-  return array;      
+  return array;
 }

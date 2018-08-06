@@ -8,3 +8,4 @@ export class Aufgabe {
         this.n2 = n2;
     }
 }
+

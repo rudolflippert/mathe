@@ -17,7 +17,7 @@ export class AppHeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.intervalId = window.setInterval(() => {
       this.date = new Date();
-    }, 1000)
+    }, 1000);
   }
 
   ngOnDestroy() {

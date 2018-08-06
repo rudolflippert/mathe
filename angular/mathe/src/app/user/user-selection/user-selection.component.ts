@@ -1,6 +1,5 @@
-import { Component, OnInit, HostBinding, Input, Host, Inject, ViewChild, ElementRef, ChangeDetectorRef, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
 import { User } from 'src/app/user';
-import { AppComponent } from '../../app.component';
 import { UsersService } from '../../users.service';
 
 @Component({
@@ -19,8 +18,7 @@ export class UserSelectionComponent implements OnInit, AfterViewInit {
   constructor(public usersService: UsersService) { }
 
   ngAfterViewInit(): void {
-    this.ref.changes.subscribe((next: QueryList<ElementRef<HTMLInputElement>>) =>
-    {
+    this.ref.changes.subscribe((next: QueryList<ElementRef<HTMLInputElement>>) => {
       const n = next.toArray();
       if (n[0]) {
         n[0].nativeElement.focus();
