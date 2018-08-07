@@ -14,7 +14,4 @@ export class AppComponent {
   constructor(public usersService: UsersService) {
   }
 
-  ngOnInit() {
-  }
-
 }

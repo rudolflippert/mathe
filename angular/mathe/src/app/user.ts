@@ -1,4 +1,4 @@
-import { Aufgabe } from "./aufgabe";
+import { Aufgabe } from './aufgabe';
 
 export class User {
     id: number;

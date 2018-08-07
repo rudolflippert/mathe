@@ -4,7 +4,7 @@
   <li *ngIf="!newUser; else otherUser" (click)="newUser=true">jemand anderes...</li>
     <ng-template #otherUser>
       <li>
-        <input type="text" #other (keyup.enter)="createUser(other)" autofocus (blur)="newUser=false">
+        <input type="text" #other (keyup.enter)="createUser(other)" (blur)="newUser=false">
       </li>
     </ng-template>
 </ul>

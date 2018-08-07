@@ -24,7 +24,7 @@ export class UserHeaderComponent implements OnInit {
   }
 
   getScore() {
-    return this.user.right-this.user.wrong;
+    return this.user.right - this.user.wrong;
   }
 
 }

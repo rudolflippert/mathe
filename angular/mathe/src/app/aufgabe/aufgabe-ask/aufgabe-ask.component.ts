@@ -7,7 +7,7 @@ import { debug } from 'util';
   templateUrl: './aufgabe-ask.component.html',
   styleUrls: ['./aufgabe-ask.component.scss']
 })
-export class AufgabeAskComponent implements OnInit, AfterViewInit {
+export class AufgabeAskComponent implements AfterViewInit {
 
   @Input()
   aufgabe: Aufgabe;
@@ -20,17 +20,15 @@ export class AufgabeAskComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-  ngOnInit() {
-    
-  }
-
   ngAfterViewInit() {
     this.box.nativeElement.focus();
   }
 
   respond(inp: HTMLInputElement) {
-    const r = parseInt(inp.value);
-    if (!isNaN(r)) this.response.emit(r);
+    const r = parseInt(inp.value, 10);
+    if (!isNaN(r)) {
+      this.response.emit(r);
+    }
     inp.value = '';
   }
 
