@@ -1,0 +1,20 @@
+--2018-08-07 22:25:35--  http://bestanimations.com/Animals/Mammals/Bulls
+Auflösen des Hostnamens bestanimations.com (bestanimations.com)… 104.28.3.246, 104.28.2.246, 2400:cb00:2048:1::681c:3f6, ...
+Verbindungsaufbau zu bestanimations.com (bestanimations.com)|104.28.3.246|:80 … verbunden.
+HTTP-Anforderung gesendet, auf Antwort wird gewartet … 302 Found
+Platz: http://www.bestanimations.com/404.html [folgend]
+--2018-08-07 22:25:35--  http://www.bestanimations.com/404.html
+Auflösen des Hostnamens www.bestanimations.com (www.bestanimations.com)… 104.28.3.246, 104.28.2.246, 2400:cb00:2048:1::681c:2f6, ...
+Wiederverwendung der bestehenden Verbindung zu bestanimations.com:80.
+HTTP-Anforderung gesendet, auf Antwort wird gewartet … 301 Moved Permanently
+Platz: http://bestanimations.com/404.html [folgend]
+--2018-08-07 22:25:36--  http://bestanimations.com/404.html
+Wiederverwendung der bestehenden Verbindung zu bestanimations.com:80.
+HTTP-Anforderung gesendet, auf Antwort wird gewartet … 200 OK
+Länge: nicht spezifiziert [text/html]
+Wird in »Bulls« gespeichert.
+
+Bulls                   [<=>                 ]       0  --.-KB/s               Bulls                   [ <=>                ]   9,20K  --.-KB/s    in 0,009s  
+
+2018-08-07 22:25:36 (1,06 MB/s) - »Bulls« gespeichert [9420]
+

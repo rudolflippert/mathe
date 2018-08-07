@@ -6,6 +6,8 @@ import { UserModule } from './user/user.module';
 import { AufgabeModule } from './aufgabe/aufgabe.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppHeaderComponent } from './app-header/app-header.component';
+import { SuperComponent } from './deko/super/super.component';
+import { DekoModule } from './deko/deko.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AppHeaderComponent } from './app-header/app-header.component';
     BrowserModule,
     HttpClientModule,
     UserModule,
-    AufgabeModule
+    AufgabeModule,
+    DekoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

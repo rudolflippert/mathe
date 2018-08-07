@@ -9,6 +9,7 @@
 <rl-aufgabe-ask [aufgabe]="usersService.user.todo[0]"
 (response)="usersService.respond($event)"
 ></rl-aufgabe-ask>
+<rl-super [score]="usersService.user.right - usersService.user.wrong"></rl-super>
 
 </ng-template>
 <ng-template #selectUser>
